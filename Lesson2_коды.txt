@@ -1,0 +1,375 @@
+_____________________
+
+// Задание 4. Пользователь вводит прибыль фирмы за год (12 месяцев).
+// Необходимо определить месяц, в котором прибыль была максимальна и месяц,
+// в котором прибыль была минимальна.
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    system("chcp 65001");
+
+
+    int arr[12];
+    cout << "Введите 12 значений прибыли за последний год\n";
+
+    for (int i = 0; i < 12; i++) {
+        cin >> arr[i];
+        cout << "Значение прибыли в " << i + 1 << " месяце равно " << arr[i] << endl;
+    }
+    int minI = 1;
+    int maxI = 1;
+    int min = arr[0];
+    int max = arr[0];
+    for (int i = 0; i < 12; i++) {
+        if (min > arr[i]) {
+            min = arr[i];
+            minI = i + 1;
+        }
+        if (max < arr[i]) {
+            max = arr[i];
+            maxI = i + 1;
+        }
+    }
+    cout << "Месяц с максимальной прибылью " << maxI << endl;
+    cout << "Месяц с минимальной прибылью " << minI << endl;
+
+}
+
+
+______________________
+
+#include <iostream>
+using namespace std;
+int main() {
+    system("chcp 65001");
+
+    // Задание 2. Написать программу, которая выводит одномерный массив в обратном порядке.
+
+    int arr [] = {1, 2, 3, 4, 5, 6};
+
+   cout << "Введите шесть значений прибыли за последние полгода\n";
+
+   for (int i = 6; i>0; i--){
+       cout << "Значение элемента " << i << " равно " << arr [i-1] << endl;
+   }
+
+}
+
+_______________________
+
+   // Задание 1. Написать, программу,
+   // которая вычисляет прибыль фирмы за 6 месяцев. Пользователь вводит прибыль фирмы за каждый месяц.
+
+   cout << "Введите шесть значений прибыли за последние полгода\n";
+   int sum=0;
+   int arr[6];
+   for (int i = 0; i<6; i++){
+       cin >> arr[i];
+       sum+=arr[i];
+   }
+   cout << "Прибыль фирмы за 6 месяцев составила " << sum << " руб.\n";
+________________________
+
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+// Конвертер валют
+int main() {
+
+    system("chcp 65001");
+    int number1;
+    int number2;
+    int sum = 0;
+    int prod = 1;
+    cout << "Введите две границы диапазона: \n";
+    cin >> number1;
+    cin >> number2;
+
+    int start;
+    int end;
+    if (number1 < number2) {
+        start = number1;
+        end = number2;
+    } else {
+        start = number2;
+        end = number1;
+    }
+
+
+    for (int i = start; i <= end; i++) {
+        (i % 2 == 0) ? sum += i : prod *= i;
+    }
+    cout << "Сумма четных " << sum << endl;
+    cout << "Произведение нечетных " << prod << endl;
+
+    return 0;
+
+
+}
+_________________________
+
+/* постфикс префикс инкремент
+   int a,b;
+   a=0;
+   b=0;
+   cout << "a = " << a << "\t" << b << endl;
+      b=a++;
+    cout << "a = " << a << "\t" << b << endl;
+    b=++a;
+    cout << "a = " << a << "\t" << b << endl;
+*/
+
+____________________________
+
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+// Конвертер валют
+int main() {
+    system("chcp 65001");
+    int valuta1;
+    int valuta2;
+    int value;
+    int check = 1;
+    cout << "Здравствуйте! Вы попали в конвертер валюты\n";
+
+    do {
+        cout << "Выберите Вашу валюту\n";
+        cout << "1 - RUB, 2 - EUR, 3 - USD\n";
+        cin >> valuta1;
+        cout << "Сколько?\n";
+        cin >> value;
+        cout << "В какую валюту пересчитать?\n";
+        switch (valuta1) {
+            case 1:
+                cout << "2 - EUR, 3 - USD\n";
+                break;
+            case 2:
+                cout << "1 - RUB, 3 - USD\n";
+                break;
+            case 3:
+                cout << "1 - RUB, 2 - EUR\n";
+                break;
+        }
+        cin >> valuta2;
+
+        double result;
+
+        if (valuta1 == 1) {
+            if (valuta2 == 2) {
+                result = (double) value / 70;
+                cout << "У Вас " << result << " EUR\n";
+            } else {
+                result = (double) value / 60;
+                cout << "У Вас " << result << " USD\n";
+            }
+        } else if (valuta1 == 2) {
+            if (valuta2 == 1) {
+                result = (double) value / 0.0142;
+                cout << "У Вас " << result << " RUB\n";
+            } else {
+                result = (double) valuta2 / 0.857;
+                cout << "У Вас " << result << " USD\n";
+            }
+        } else {
+            if (valuta2 == 1) {
+                result = (double) value / 0.0166;
+                cout << "У Вас " << result << " RUB\n";
+            } else {
+                result = (double) valuta2 / 1.166;
+                cout << "У Вас " << result << " EUR\n";
+            }
+        }
+        cout << "Продолжим? Если нет - введите 0, если продолжаем - 1\n";
+        cin >> check;
+
+    } while (check == 1);
+
+
+    return 0;
+}
+
+
+
+---------------------------
+
+#include <iostream>
+#include <ctime>
+using namespace std;
+// Угадай число
+int main() {
+    system("chcp 65001");
+    srand(time(0) );
+
+    const int MAX_NUMBER = 10;
+    cout << "Игра УГАДАЙ ЧИСЛО\n";
+    cout << "Компьютер загадывает число от 1 до " << MAX_NUMBER << "\n";
+    cout << "Вам предлагается ввести число. Если угадали - то выиграли, нет - продолжаете вводить числа\n";
+    cout << "Если надоело и хотите выйти - вводите 0\n";
+
+    int randomNumber = 1+ rand()%MAX_NUMBER;
+    int number;
+    int count = 0;
+
+    cout << "******\n";
+    cout << "Компьютер загадывает число ...\n";
+
+    system("Pause");
+
+    do {
+        cout << "Введите число (Если надоело и хотите выйти - введите 0))\n";
+        cin >> number;
+        count++;
+    } while (number!=randomNumber && number!=0);
+
+    if (number==0){
+        cout << "Очень жаль, что решили закончить игру\n";
+        cout << "Вы использовали " << count << " попыток\n";
+    } else {
+        cout << "УРА!!! *** ВЫ УГАДАЛИ!!!\n";
+        cout << "Угадали за " << count << " попыток\n";
+    }
+
+    return 0;
+}
+
+-------------------------------------
+
+Задание 4
+    int number1, number2;
+    cout << "Enter number one: "; cin >> number1;
+    cout << "Enter number two: "; cin >> number2;
+    if (number1 == number2 ) {
+        cout << "Equal";
+    }
+    else if (number1 > number2 ) {
+        cout << number1 << " more then " << number2;
+    }
+    else {
+        cout << number2 << " more then " << number1;
+    }
+Задание 1
+int number1, number2;
+    cout << "Enter number one: "; cin >> number1;
+    // cout << "Enter number two: "; cin >> number2;
+    /*
+    if (number2 == 0) {
+        cout << "Error!" << endl;
+    } else {
+        double result;
+        result = (double) number1 / number2;
+        cout << number1 << " / " << number2 << " = " << result << endl;
+    }
+    */
+
+    if (number1 % 2 == 0) {
+        cout << "Chetnoe";
+        //result = (double) number1 / number2;
+        // cout << number1 << " / " << number2 << " = " << result << endl;
+    } else {cout << "NeChetnoe";}
+Задание 2
+ int number1, number2;
+    cout << "Enter number one: "; cin >> number1;
+    cout << "Enter number two: "; cin >> number2;
+if (number1 > number2 ) {
+        cout << number2;    } else {
+        cout << number1 ;
+    }
+Задание 3
+    int number1, number2;
+    cout << "Enter number one: "; cin >> number1;
+   // cout << "Enter number two: "; cin >> number2;
+    if (number1 == 0 ) {
+        cout << "Zero";
+    }
+    else if (number1 > 0 ) {
+        cout << number1 << " more then Zero ";
+    }
+    else {
+        cout << number1 << " less then Zero ";
+    }
+
+Задание age
+int age;
+    cout << "How old are you?"; cin >> age;
+    if (age <=0) { cout << "Incorrect!";}
+    else
+    {
+        if (age <6) {
+            cout << "0+";
+        }
+        else if (age <12) {
+            cout << "6+";
+        }
+        else if (age <18) {
+            cout << "12+";
+        }
+        else {
+            cout << "18+";
+        }
+Задание mark1
+    int mark1, mark2, mark3, mark4, mark5;
+
+    cout << "Enter mark 1:\n"; cin >> mark1;
+    cout << "Enter mark 2:\n"; cin >> mark2;
+    cout << "Enter mark 3:\n"; cin >> mark3;
+    cout << "Enter mark 4:\n"; cin >> mark4;
+    cout << "Enter mark 5:\n"; cin >> mark5;
+
+    double averageMark = (mark1+mark2+mark3+mark4+mark5)/5;
+
+    if (averageMark>=4) {
+        cout << "Great! You are admitted to the exam\n";
+    }
+    else {
+        cout << "Sorry (: You are not admitted to the exam\n";
+    }
+Задание Четный нечетный
+    int number;
+    double result;
+
+    cout << "Enter your number"; cin >> number ;
+
+    if (number%2==0) {
+        result = number*3;
+    } else {
+        result = number/2;
+    }
+cout << "Result: " << result;
+
+Задание калькулятор
+//Написать программу-калькулятор.
+// Пользователь вводит два числа и выбирает арифметическое действие.
+// Вывести на экран результат.
+    char symbol;
+    int number1, number2;
+    double result;
+    cout << "Enter first number\n"; cin >> number1;
+    cout << "Ether the operator\n"; cin >> symbol;
+    if (symbol!='+' && symbol!='-' && symbol!='/' && symbol!='*') {
+        cout << "Error! - Wrong operator!\n";
+        cout << "Ether correct operator!\n"; cin >> symbol;
+    }
+    cout << "Enter second number\n"; cin >> number2;
+
+    if (symbol=='/' && number2 ==0) {
+        cout << "Error! - only not Zero!\n";
+        cout << "Ether correct number!\n"; cin >> number2;
+    }
+    if (symbol=='+') {
+        result=number1+number2;
+    } else if (symbol=='-'){
+        result=number1-number2;
+    } else if (symbol=='*'){
+        result=number1*number2;
+    } else {
+        result=number1/number2;
+    }
+    cout << "Result = " << result;
